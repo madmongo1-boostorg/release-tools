@@ -384,10 +384,10 @@ class ci_cli():
             os.chdir(self.script.root_dir)
         else:
             os.chdir(self.script.root_dir)
-            utils.check_call("git","pull","--quiet","--no-recurse-submodules","--depth=50")
+            utils.check_call("git","pull","--no-recurse-submodules","--depth=50")
         if self.script.commit:
             utils.check_call("git","checkout","-qf",self.script.commit)
-        utils.check_call("git","submodule","update","--quiet","--init","--recursive")
+        utils.check_call("git","submodule","update","--init","--recursive")
 
 class ci_travis(object):
     '''
@@ -474,7 +474,7 @@ class ci_circleci(object):
     
     def command_checkout_post(self):
         os.chdir(self.script.root_dir)
-        utils.check_call("git","submodule","update","--quiet","--init","--recursive")
+        utils.check_call("git","submodule","update","--init","--recursive")
     
     def command_dependencies_pre(self):
         # Read in .travis.yml for list of packages to install
