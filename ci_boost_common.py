@@ -540,7 +540,7 @@ class ci_appveyor(object):
     
     def command_before_build(self):
         os.chdir(self.script.root_dir)
-        utils.check_call("git","submodule","update","--quiet","--init","--recursive")
+        utils.check_call("git","submodule","update","--init","--recursive")
     
     def command_build_script(self):
         self.script.command_build()
